@@ -3,6 +3,95 @@
 {% block title %}{{ post.title }} · {{ BRAND_NAME }}{% endblock %}
 
 {% block content %}
-{# TODO: W1 — 본문/TOC/Meta. W2 — 댓글 섹션. #}
-<span>dfkjadfn</span>
+<div class="tech_detail-inner">
+    <div class="detail-index">
+        <span class="index-title">ON THIS PAGE</span>
+        <div class="index-content">
+            <span class="index-font index-active">1. 토큰이란</span>
+        </div>
+        <div class="index-content">
+            <span class="index-font index-hover">2. 단위 결정</span>
+        </div>
+        <div class="index-content">
+            <span class="index-font index-hover">3. 빌드 파이프라인</span>
+        </div>
+        <div class="index-content">
+            <span class="index-font index-hover">4. 마무리</span>
+        </div>
+    </div>
+    <div class="detail-main">
+        <div class="header-metatop">
+            <span class="categoryfilter-name category-color">Frontend</span>
+            <span class="header-metatop-detail">2026.04.28 · 8 min · series 5/8</span>
+        </div>
+        <span class="header-title">손에 익는 디자인 시스템 만들기</span>
+        <span class="header-caption">Designing a system that fits the hand — tokens, units, and the boring middle.</span>
+        <div class="note_divider"></div>
+        <p class="description">디자인 시스템을 처음 만들 때, 저는 컴포넌트부터 시작했어요. 버튼, 카드, 입력 필드. 그러다 알았죠. <span class="brown_color">토큰이 없는 컴포넌트는 짐</span>이라는 걸요.</p>
+        <p class="tech_detail-main-subtitle">1. 토큰이란</p>
+        <p class="description">토큰은 디자인 결정에 이름을 붙이는 일이에요. <span class="description-small">--accent</span>는 "주황색"이 아니라 "강조되는 무엇"을 의미하죠.</p>
+        <div class="code_block">
+            <pre><code class="code">:root {
+                  --accent: #E8794A;       /* terracotta · primary */
+                  --accent-hover: #C95A2C; /* deeper rust */
+                  --bg-page: #F5EDE0;      /* page · soft beige */
+            }</code></pre>
+        </div>
+        <p class="description">이름을 잘 붙이면, 색을 바꾸는 일이 의미를 바꾸는 일이 됩니다. 그게 시스템이에요.</p>
+        <div class="note_divider"></div>
+        <p class="subtitle_middle">comments · 4</p>
+        <div class="comment_editor">
+            <div class="text_stack">
+                <span class="comment-description-font-bold">댓글을 남기려면 로그인이 필요해요</span>
+                <span class="comment-description-font">Sign in to leave a note on this page.</span>
+            </div>
+            <button class="comment-btn">Sign in →</button>
+        </div>
+            <div class="comment_box">
+                <div class="avatar">JM</div>
+                <div class="text_stack">
+                    <div class="text_stack-header">
+                        <span class="user_name">jaemin</span>
+                        <span class="commnet-date">2026.04.28</span>
+                    </div>
+                    <div class="comment-content">토큰 네이밍 진짜 어렵죠. semantic 레벨까지 가면 의견 갈리고요.</div>
+                </div>
+            </div>
+            <div class="note_divider"></div>
+            <div class="comment_box">
+                <div class="avatar">SY</div>
+                <div class="text_stack">
+                    <div class="text_stack-header">
+                        <span class="user_name">soyun</span>
+                        <span class="commnet-date">2026.04.29</span>
+                    </div>
+                    <div class="comment-content">다음 편 기다릴게요. 빌드 파이프라인 부분 궁금해요.</div>
+                </div>
+            </div>
+    </div>
+    <div class="detail-sidebar">
+        <div class="sidebar-title-font">META</div>
+        <div class="sidebar-metalist">
+            <div class="metalist-content">
+                <span class="sidebar-font">author</span><span class="sidebar-font-bold">아기사자</span>
+            </div>
+            <div class="metalist-content">
+                <span class="sidebar-font">edited</span><span class="sidebar-font-bold">2026.04.29</span>
+            </div>
+            <div class="metalist-content">
+                <span class="sidebar-font">views</span><span class="sidebar-font-bold">1,284</span>
+            </div>
+            <div class="metalist-content">
+                <span class="sidebar-font">license</span><span class="sidebar-font-bold">CC BY 4.0</span>
+            </div>
+        </div>
+        <div class="sidebar-note_divider"></div>
+        <div class="sidebar-font">SHARE</div>
+        <div class="categoryfilter">
+            <span class="categoryfilter-name category-hover">copy ⎘</span>
+            <span class="categoryfilter-name category-hover">x</span>
+            <span class="categoryfilter-name category-hover">rss</span>
+        </div>
+    </div>
+</div>
 {% endblock %}
