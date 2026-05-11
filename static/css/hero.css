@@ -360,7 +360,7 @@ letter-spacing: 0.24px;
 .latestlist-box-category{
     display: flex;
 padding: 4px 10px;
-align-items: flex-start;
+align-items: center;
 gap: 4px;
     border-radius: 999px;
     background: var(--beige-accent-soft, #F8DCCA);

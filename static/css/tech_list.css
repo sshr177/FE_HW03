@@ -110,7 +110,7 @@ gap: 4px;
 .categoryfilter-name{
     display: flex;
 padding: 4px 10px;
-align-items: flex-start;
+align-items: center;
 gap: 4px;
 border-radius: 999px;
 border: 1px solid var(--beige-line-strong, #B59C82);
