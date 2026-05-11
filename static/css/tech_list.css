@@ -134,7 +134,7 @@ border: 1px solid var(--beige-line-strong, #B59C82);
 background: var(--beige-bg-sunken, #EFE4D2);
 }
 .category-color,
-.categoryfilter-name:active{
+.category-active:active{
     border: 1px solid var(--beige-accent-soft, #F8DCCA);
 background: var(--beige-accent-soft, #F8DCCA);
 }
