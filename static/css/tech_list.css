@@ -75,7 +75,6 @@ line-height: 160%; /* 22.4px */
 .search-content{
     width: 180px;
     background: var(--beige-bg-paper, #FBF6EC);
-    color: var(--beige-ink-4, #B59C82);
     border: none;
     outline: none;
     background: transparent;
@@ -85,6 +84,9 @@ font-size: 14px;
 font-style: normal;
 font-weight: 400;
 line-height: 160%; /* 22.4px */
+}
+.search-content::placeholder {
+    color: var(--beige-ink-4, #B59C82);
 }
 .search-enter{
     display: flex;
@@ -137,6 +139,10 @@ background: var(--beige-bg-sunken, #EFE4D2);
 .category-active:active{
     border: 1px solid var(--beige-accent-soft, #F8DCCA);
 background: var(--beige-accent-soft, #F8DCCA);
+}
+.tech_list-main .list-list > .link_design {
+    display: block;
+    width: 100%;
 }
 .list-list{
     display: flex;
