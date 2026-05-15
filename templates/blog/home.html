@@ -6,13 +6,14 @@
 <div class="hero">
     <div class="hero-inner">
         <div class="hero-label">
-            <p class="hero-label-welcome">welcome · 환영합니다</p>
-            <p class="hero-label-date">— 2026, week 18</p>
+            <p class="hero-label-welcome">{{ hero.eyebrow_left }}</p>
+            <p class="hero-label-date">{{ hero.eyebrow_right }}</p>
         </div>
-            <h1 class="hero-title">기록하는 일이 </br>성장이 되는 곳<span class="hero-title-dot">.</span></h1>
-        <p class="hero-description">아기사자(BL)가 매일 조금씩 적어가는 노트입니다.
-        </br>
-기술, 프로젝트, 그리고 평범한 하루의 단상까지 — 천천히 쌓아 둡니다.</p>
+            <span class="hero-title">{{ hero.h1_line1 }}</span>
+            <span class="hero-title">{{ hero.h1_line2 }}<span class="hero-title-dot">.</span></span>
+        <span class="hero-description">{{ hero.bio_line1 }}</span>
+        <span class="hero-description">{{ hero.bio_line2 }}</span>
+
         <div class="hero-button">
             <span class="hero-button-name hero-button-active">최신 글 읽기 →</span>
             <span class="hero-button-name hero-button-hover hero-button-active">about</span>
@@ -21,7 +22,7 @@
         <div class="hero-metastrip">
             <span class="hero-metastrip-dot"></span>
             <span class="hero-metastrip-now_writing">now writing</span>
-            <span class="hero-metastrip-now_writing_caption">디자인 토큰 시리즈 6편</span>
+            <span class="hero-metastrip-now_writing_caption">{{ hero.now_writing }}</span>
         </div>
     </div>
 </div>
@@ -42,64 +43,29 @@
                     </div>
                     <div class="featurepost-content">
                         <div class="featurepost-header">
-                            <span class="featurepost-category">Frontend</span>
-                            <span class="featurepost-series">series · 5/8</span>
-                            <span class="featurepost-date">2026.04.28 · 8 min</span>
+                            <span class="featurepost-category">{{featured.category.label}}</span>
+                            <span class="featurepost-series">{{ featured.series_label}}</span>
+                            <span class="featurepost-date">{{ featured.date_display }} · {{ featured.read_minutes }}min</span>
                         </div>
-                        <p class="featurepost-title">손에 익는 디자인 시스템 만들기</p>
-                        <p class="featurepost-caption">토큰을 짓는 일은 결국 이름을 짓는 일이다. 작은 결정에 이름을 붙이는 일 — 그게 시스템이다.</p>
+                        <p class="featurepost-title">{{ featured }}</p>
+                        <p class="featurepost-caption">{{ featured.subtitle  }}</p>
                         <p class="featurepost-gotoread">이어 읽기 →</p>
                     </div>
                     </div>
                 </a>
                 <div class="latestlist">
                     <span class="latestlist-title">LATEST · 최근 5편</span>
-                    <a class="link_design" href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-                        <div class="latestlist-box">
-                        <div class="latestlist-box-header">
-                            <span class="latestlist-box-category">TypeScript</span>
-                            <span class="latestlist-box-date">04.21</span>
-                        </div>
-                        <p class="latestlist-box-content">tRPC와 함께한 1년: 좋았던 것, 불편했던 것</p>
-                        </div>
-                    </a>
-                    <a class="link_design" href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-                        <div class="latestlist-box">
-                        <div class="latestlist-box-header">
-                            <span class="latestlist-box-category">Frontend</span>
-                            <span class="latestlist-box-date">04.14</span>
-                        </div>
-                        <p class="latestlist-box-content">CSS Container Queries, 결국 쓰게 되더라</p>
-                        </div>
-                    </a>
-                    <a class="link_design" href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-                        <div class="latestlist-box">
-                        <div class="latestlist-box-header">
-                            <span class="latestlist-box-category">AI</span>
-                            <span class="latestlist-box-date">04.07</span>
-                        </div>
-                        <p class="latestlist-box-content">Vibe coding 다음 단계 — 워크플로우 만들기</p>
-                        </div>
-                    </a>
-                    <a class="link_design" href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-                        <div class="latestlist-box">
-                        <div class="latestlist-box-header">
-                            <span class="latestlist-box-category">Performance</span>
-                            <span class="latestlist-box-date">03.30</span>
-                        </div>
-                        <p class="latestlist-box-content">React 19 컴파일러로 useMemo를 지웠다</p>
-                        </div>
-                    </a>
-                    <a class="link_design" href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-                        <div class="latestlist-box">
-                        <div class="latestlist-box-header">
-                            <span class="latestlist-box-category">Series · DS</span>
-                            <span class="latestlist-box-date">03.22</span>
-                        </div>
-                        <p class="latestlist-box-content">디자인 토큰을 코드로 옮기는 5가지 방법</p>
-                        </div>
-                    </a>
-                </div>
+            {% for post in others %}
+                <a class="link_design" href="{{ post.get_absolute_url }}">
+                    <div class="latestlist-box">
+                    <div class="latestlist-box-header">
+                        <span class="latestlist-box-category">{{ post.category.label }}</span>
+                        <span class="latestlist-box-date">{{ post.date.display }}</span>
+                    </div>
+                    <p class="latestlist-box-content">{{ post.title }}</p>
+                    </div>
+                </a>
+            {% endfor %}
             </div>
         </div>
     </div>
