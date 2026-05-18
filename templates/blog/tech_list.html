@@ -7,8 +7,8 @@
     <div class="tech_list-inner">    
         <div class="tech_list-header">
             <div class="header-title">
-                <span class="subtitle">TECH NOTES</span>
-                <span class="maintitle">만들면서 배운 것들.</span>
+                <span class="subtitle">{{page_eyebrow}}</span>
+                <span class="maintitle">{{page_h1}}</span>
             </div>
             <div class="header-search header-search-focus-within">
                 <span class="search-icon">⌕</span>
@@ -17,109 +17,30 @@
             </div>
         </div>
         <div class="categoryfilter">
-            <span class="categoryfilter-name category-color">All</span>
-            <span class="categoryfilter-name category-hover">Frontend</span>
-            <span class="categoryfilter-name category-hover">TypeScript</span>
-            <span class="categoryfilter-name category-hover">AI</span>
-            <span class="categoryfilter-name category-hover">Performance</span>
-            <span class="categoryfilter-name category-hover">Series · DS</span>
+            {% for category in categories %}
+            <button class="categoryfilter-name category-color">{{category.label}}</button>
+            {% endfor %}
         </div>
         <div class="list-list">
-            <a class="link_design" href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
+            {% for post in posts %}
+            <a class="link_design" href="{{ post.get_absolute_url }}">
             <div class="list-box">
-                <div class="list-date">2026.04.28</div>
+                <div class="list-date">{{post.date_display}}</div>
                 <div class="list-main">
-                    <span class="list-title">손에 익는 디자인 시스템 만들기</span>
-                    <span class="list-caption">Designing a system that fits the hand</span>
+                    <span class="list-title">{{post.title}}</span>
+                    <span class="list-caption">{{post.subtitle}}</span>
                     <div class="categoryfilter">
-                        <span class="categoryfilter-name category-color">Frontend</span>
-                        <span class="categoryfilter-name">#design-system</span>
-                        <span class="categoryfilter-name">#tokens</span>
-                        <span class="categoryfilter-name">#css</span>
+                        <span class="categoryfilter-name category-color">{{post.category.label}}</span>
+                        {% for tag in post.tags.all %}
+                        <span class="categoryfilter-name">{{tag.label}}</span>
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="list-modifytime">8 min</div>
+                <div class="list-modifytime">{{post.read_minutes}}min</div>
             </div>
+
             </a>
-            <a class="link_design" href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-            <div class="list-box">
-                <div class="list-date">2026.04.21</div>
-                <div class="list-main">
-                    <span class="list-title">tRPC와 함께한 1년: 좋았던 것, 불편했던 것</span>
-                    <span class="list-caption">A year with tRPC</span>
-                    <div class="categoryfilter">
-                        <span class="categoryfilter-name category-color">TypeScript</span>
-                        <span class="categoryfilter-name">#trpc</span>
-                        <span class="categoryfilter-name">#types</span>
-                        <span class="categoryfilter-name">#dx</span>
-                    </div>
-                </div>
-                <div class="list-modifytime">6 min</div>
-            </div>
-            </a>
-            <a class="link_design" href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-            <div class="list-box">
-                <div class="list-date">2026.04.14</div>
-                <div class="list-main">
-                    <span class="list-title">CSS Container Queries, 결국 쓰게 되더라</span>
-                    <span class="list-caption">I came around to container queries</span>
-                    <div class="categoryfilter">
-                        <span class="categoryfilter-name category-color">Frontend</span>
-                        <span class="categoryfilter-name">#css</span>
-                        <span class="categoryfilter-name">#layout</span>
-                    </div>
-                </div>
-                <div class="list-modifytime">5 min</div>
-            </div>
-            </a>
-            <a class="link_design" href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-            <div class="list-box">
-                <div class="list-date">2026.04.07</div>
-                <div class="list-main">
-                    <span class="list-title">Vibe coding 다음 단계 — 워크플로우 만들기</span>
-                    <span class="list-caption">Beyond vibe coding</span>
-                    <div class="categoryfilter">
-                        <span class="categoryfilter-name category-color">AI</span>
-                        <span class="categoryfilter-name">#ai</span>
-                        <span class="categoryfilter-name">#workflow</span>
-                        <span class="categoryfilter-name">#agents</span>
-                    </div>
-                </div>
-                <div class="list-modifytime">12 min</div>
-            </div>
-            </a>
-            <a class="link_design" href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-            <div class="list-box">
-                <div class="list-date">2026.03.30</div>
-                <div class="list-main">
-                    <span class="list-title">React 19 컴파일러로 useMemo를 지웠다</span>
-                    <span class="list-caption">Removing useMemo with React 19</span>
-                    <div class="categoryfilter">
-                        <span class="categoryfilter-name category-color">Performance</span>
-                        <span class="categoryfilter-name">#react</span>
-                        <span class="categoryfilter-name">#perf</span>
-                    </div>
-                </div>
-                <div class="list-modifytime">7 min</div>
-            </div>
-            </a>
-            <a class="link_design" href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
-            <div class="list-box">
-                <div class="list-date">2026.03.22</div>
-                <div class="list-main">
-                    <span class="list-title">디자인 토큰을 코드로 옮기는 5가지 방법</span>
-                    <span class="list-caption">Five ways to ship design tokens</span>
-                    <div class="categoryfilter">
-                        <span class="categoryfilter-name category-color">Series · DS</span>
-                        <span class="categoryfilter-name">#design-system</span>
-                        <span class="categoryfilter-name">#series</span>
-                        <span class="categoryfilter-name">#5/8</span>
-                    </div>
-                </div>
-                <div class="list-modifytime">9 min</div>
-            </div>
-            </a>
-            
+            {% endfor %}            
         </div>
         <div class="line_divider"></div>
     </div>

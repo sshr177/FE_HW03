@@ -6,38 +6,33 @@
 <div class="tech_detail-inner">
     <div class="detail-index">
         <span class="index-title">ON THIS PAGE</span>
+        {% for section in sections %}
+        {% if section.kind == "h2" %}
         <div class="index-content">
-            <span class="index-font index-active">1. 토큰이란</span>
+            <span class="index-font">{{section.text}}</span>
         </div>
-        <div class="index-content">
-            <span class="index-font index-hover">2. 단위 결정</span>
-        </div>
-        <div class="index-content">
-            <span class="index-font index-hover">3. 빌드 파이프라인</span>
-        </div>
-        <div class="index-content">
-            <span class="index-font index-hover">4. 마무리</span>
-        </div>
+        {% endif %}
+        {% endfor %}
     </div>
     <div class="detail-main">
         <div class="header-metatop">
-            <span class="categoryfilter-name category-color">Frontend</span>
-            <span class="header-metatop-detail">2026.04.28 · 8 min · series 5/8</span>
+            <span class="categoryfilter-name category-color">{{post.category.label}}</span>
+            <span class="header-metatop-detail">{{post.date_display}} · {{post.read_minutes}} min · {{post.series_label}}</span>
         </div>
-        <span class="header-title">손에 익는 디자인 시스템 만들기</span>
-        <span class="header-caption">Designing a system that fits the hand — tokens, units, and the boring middle.</span>
+        <span class="header-title">{{post.title}}</span>
+        <span class="header-caption">{{post.subtitle}}</span>
         <div class="note_divider"></div>
-        <p class="description">디자인 시스템을 처음 만들 때, 저는 컴포넌트부터 시작했어요. 버튼, 카드, 입력 필드. 그러다 알았죠. <span class="brown_color">토큰이 없는 컴포넌트는 짐</span>이라는 걸요.</p>
-        <p class="tech_detail-main-subtitle">1. 토큰이란</p>
-        <p class="description">토큰은 디자인 결정에 이름을 붙이는 일이에요. <span class="description-small">--accent</span>는 "주황색"이 아니라 "강조되는 무엇"을 의미하죠.</p>
+        {% for section in sections %}
+        {% if section.kind == "p" %}
+        <p class="description">{{section.text|safe}}</p>
+        {% elif section.kind == "h2" %} 
+        <p class="tech_detail-main-subtitle" id="{{section.anchor}}">{{section.text}}</p>
+        {% elif section.kind == "code" %}
         <div class="code_block">
-            <pre><code class="code">:root {
-                  --accent: #E8794A;       /* terracotta · primary */
-                  --accent-hover: #C95A2C; /* deeper rust */
-                  --bg-page: #F5EDE0;      /* page · soft beige */
-            }</code></pre>
+            <pre><code class="code">{{section.text}}</code></pre>
         </div>
-        <p class="description">이름을 잘 붙이면, 색을 바꾸는 일이 의미를 바꾸는 일이 됩니다. 그게 시스템이에요.</p>
+        {% endif %}
+        {% endfor %}
         <div class="note_divider"></div>
         <p class="subtitle_middle">comments · 4</p>
         <div class="comment_editor">

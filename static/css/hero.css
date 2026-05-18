@@ -37,7 +37,6 @@
 }
 .hero-title{
     color: var(--beige-ink-1, #3A2419);
-    height: 116px;
     margin: 0px;
     /* Heading/Display */
     font-family: Inter;
